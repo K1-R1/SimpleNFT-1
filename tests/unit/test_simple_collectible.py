@@ -1,7 +1,7 @@
 from scripts.general_scripts import get_account
 from brownie import network, config
 import pytest
-from scripts.deploy import main
+from scripts.simple_collectable.deploy import main
 
 
 def test_can_create_simple_collectible():

@@ -2,7 +2,7 @@ from scripts.general_scripts import opensea_url, get_account, get_contract, fund
 from brownie import AdvancedCollectable, config, network
 
 
-def main():
+def deploy_and_create():
     account = get_account()
     advanced_collectable = AdvancedCollectable.deploy(
         get_contract('vrf_coordinator'),
@@ -11,5 +11,10 @@ def main():
         config['networks'][network.show_active()]['vrf_fee'],
         {'from': account})
     fund_with_link(advanced_collectable.address)
-    advanced_collectable.createCollectable({'from': account}).wait(1)
+    creat_tx = advanced_collectable.createCollectable({'from': account})
+    creat_tx.wait(1)
     print('New collectable has been created ...\n')
+    return advanced_collectable, creat_tx
+
+def main():
+    deploy_and_create()

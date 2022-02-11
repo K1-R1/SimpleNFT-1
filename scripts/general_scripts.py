@@ -49,3 +49,9 @@ def fund_with_link(recipient_address, account=None, link_token=None, ammount=1*(
     tx = link_token_contract.transfer(recipient_address, ammount, {'from': account}).wait(1)
     print('Contract funded with 0.1 LINK...\n')
     return tx
+
+
+breed_mapping = {0: 'PUG', 1: 'SHIBA_INU', 2: 'ST_BERNARD'}
+
+def get_breed(breed_number):
+    return breed_mapping[breed_number]

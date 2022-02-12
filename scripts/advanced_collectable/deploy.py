@@ -1,4 +1,4 @@
-from scripts.general_scripts import opensea_url, get_account, get_contract, fund_with_link
+from scripts.general_scripts import get_account, get_contract, fund_with_link
 from brownie import AdvancedCollectable, config, network
 
 
